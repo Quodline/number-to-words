@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+<body>
+<div id="resultBox"></div>
+<input id="input" type="number" placeholder="Number">
+<button id="convert">Convert</button>
+<output id="output"></output>
+<script>
+  // Assert a test
+  function test([num, actual]) {
+    const
+      result = document.createElement('p'),
+      word = num_to_words(num);
+    result.className = actual === word ? 'pass' : 'fail';
+    result.append(`${num} => ${word}`);
+    this.appendChild(result);
+  }
+
+  // Initialize app. Run tests
+  (function () {
+    const test_nums = [
+        [36007989777, 'Thirty-six billion, seven million, nine hundred and eighty-nine thousand, seven hundred and seventy-seven'],
+        [6008, 'Six thousand and eight'],
+        [0, 'Zero'],
+        [533, 'Five hundred and thirty-three'],
+        ['+++', 'Zero'],
+        ['123456789123456789123456789', 'Exceeds or below maximum safe integer'],
+        [-788, 'Minus seven hundred and eighty-eight'],
+        ['50000000', 'Fifty million']
+      ],
+      result_box = document.querySelector('#resultBox');
+    test_nums.forEach(test.bind(result_box));
+
+    document.querySelector('#convert').onclick = function () {
+      document.querySelector('#output').innerText = num_to_words(
+        document.querySelector('#input').value
+      );
+    };
+  })();
+</script>
+</body>
+</html>

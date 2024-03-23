@@ -1,0 +1,13 @@
+.pass {
+    color: green;
+}
+
+.fail {
+    color: red;
+}
+
+#output {
+    display: block;
+    outline: 2px solid green;
+    min-height: 300px;
+}
